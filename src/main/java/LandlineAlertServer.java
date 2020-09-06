@@ -17,19 +17,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-public class LandLineAlertServer {
+public class LandlineAlertServer {
     private static final List<String> registrationTokens = new ArrayList<>();
 
-    private static LandLineAlertServer landLineAlertServer = null;
+    private static LandlineAlertServer landLineAlertServer = null;
 
-    public static LandLineAlertServer getInstance() throws IOException {
+    public static LandlineAlertServer getInstance() throws IOException {
         if (landLineAlertServer == null) {
-            landLineAlertServer = new LandLineAlertServer();
+            landLineAlertServer = new LandlineAlertServer();
         }
         return landLineAlertServer;
     }
 
-    private LandLineAlertServer() throws IOException {
+    private LandlineAlertServer() throws IOException {
         Properties prop = new Properties();
         String fileName = "config.properties";
 

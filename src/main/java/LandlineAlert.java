@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class LandLineAlert {
+public class LandlineAlert {
     private static final String INIT_CALLER_ID = "AT+VCID=1\r";
     // COM* for Windows, /dev/tty* for Linux
     private static final String SERIAL_PORT = "/dev/ttyACM0";
@@ -17,7 +17,7 @@ public class LandLineAlert {
     private final SerialPort serialPort;
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, yyyy 'at' h:mma");
     
-    public LandLineAlert() {
+    public LandlineAlert() {
         serialPort = SerialPort.getCommPort(SERIAL_PORT);
         serialPort.setBaudRate(BAUD_RATE);
         
@@ -50,7 +50,7 @@ public class LandLineAlert {
                     LocalDateTime localDateTime = LocalDateTime.now();
                     sb.append("on ").append(formatter.format(localDateTime));
                     // sends the caller ID data to Firebase
-                    LandLineAlertServer.getInstance().sendMessage(title, sb.toString());
+                    LandlineAlertServer.getInstance().sendMessage(title, sb.toString());
                 }
             }
             // waits 1 second to reduce checking the serial port
@@ -59,7 +59,7 @@ public class LandLineAlert {
     }
 
     public static void main(String[] args) throws IOException, InterruptedException, FirebaseMessagingException {
-        LandLineAlert modem = new LandLineAlert();
+        LandlineAlert modem = new LandlineAlert();
         modem.run();
     }
 }
