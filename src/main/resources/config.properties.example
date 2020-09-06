@@ -1,0 +1,4 @@
+# Remove the .example and fill out all the fields: Make it 'config.properties'
+
+# Put each token in with no space and a comma between each one
+tokens=
